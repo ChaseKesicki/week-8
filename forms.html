@@ -12,9 +12,9 @@
 <div id="app">
 
     <label>Please enter your name:</label>
-    <input v-model="name">
+    <input v-model="name"> <!--Model is a variable that changes and updates in real time-->
 
-    <p v-if="name">Thanks, your name is {{ name }}</p>
+    <p v-if="name">Thanks, your name is {{ name }}</p>  <!--v-if checks if the name function has a value (theres text in it)-->
     <p v-else>Awaiting user input</p>
 
     <button v-on:click="clearName" v-if="name">Clear Name</button>

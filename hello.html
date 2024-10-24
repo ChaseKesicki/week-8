@@ -14,9 +14,9 @@
 
     <h1>Hello Vue!</h1>
 
-    <p>{{ messageWithExclamationPoints }}</p>
-
-    <button v-on:click="addExclamationPoints">Add Exclamation Points</button>
+    <p>{{ messageWithExclamationPoints }}</p>  
+    <!--brackets contain variable which is edited in setup function in JS-->
+    <button v-on:click="addExclamationPoints">Add Exclamation Points</button>  <!--V-On acts as an event listener for Vue-->
     <button v-on:click="clearExclamationPoints">Clear</button>
 
 </div>
@@ -24,17 +24,17 @@
 <script>
     //set up vue app
 
-    const { createApp, ref, computed} = Vue
+    const { createApp, ref, computed} = Vue  //Const bracket includes what the Vue program can use
 
     createApp({
         setup() {
             //defines things the Vue app needs
 
-            const message = ref('Hi')
+            const message = ref('Hi')  //Ref defines the variable
             const numberOfExclamationPoints = ref(0)
 
             function addExclamationPoints() {
-                if (numberOfExclamationPoints.value < 10) {
+                if (numberOfExclamationPoints.value < 10) {  //Need to use .value because we are using const, not let
                 numberOfExclamationPoints.value ++
                 } else{
                     alert('No more exclamation points')
@@ -48,7 +48,7 @@
             const messageWithExclamationPoints = computed( function() {
                 let computedMessage = message.value
                 //add ! based on numberOfExclamationPoints
-                for (let x = 0; x < numberOfExclamationPoints.value; x++) {
+                for (let x = 0; x < numberOfExclamationPoints.value; x++) {  //Calculates how many ! are on message
                     computedMessage = computedMessage + '!'
                 }
                 return computedMessage
@@ -62,7 +62,7 @@
                 addExclamationPoints
             }
         }
-    }).mount('#app')
+    }).mount('#app')  //Makes Vue work
 
 </script>
     
